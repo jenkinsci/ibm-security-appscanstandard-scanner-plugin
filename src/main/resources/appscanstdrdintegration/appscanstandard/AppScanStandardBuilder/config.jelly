@@ -1,0 +1,106 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+
+  <!--
+    Creates a text field that shows the value of the "name" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+    
+    checked="${it.authScanRadio == true}"
+    
+      checked="${it.formBasedScan}"
+  -->
+	   
+	<f:entry title="${%installation}" field="installation">
+		 <f:select/>
+	 </f:entry>
+	  
+	    
+	<f:entry title="${%startingURL}" field="startingURL">
+		<f:textbox clazz="required"/>
+	</f:entry>  
+	    
+    
+	 <f:section title="">  
+	 	 <f:radioBlock title="${%No Authentication}" name="authScan" value="false" checked="${instance == null ||instance.authScan == false}" inline="true">
+			</f:radioBlock>
+		 <f:radioBlock title="${%authenticatedScan}" name="authScan" value="true" checked="${instance.authScan == true}" inline="true">
+			  <f:entry>			  
+			  
+		    		<table width="100%">
+		                    <tr>		
+		                        <td align="left">		
+	
+					  	<f:radioBlock title="${%recordedSequence}" name="authScanRadio" value="true" checked="${instance == null ||instance.authScanRadio == true}" inline="true">
+							<f:entry>
+								<f:entry field="pathRecordedSequence" title="${%pathRecordedLoginSequence}">
+									<f:textbox value="${it.pathRecordedLoginSequence}"/>
+						  		</f:entry>
+						  	</f:entry>  
+						</f:radioBlock>
+		
+						<f:radioBlock title="${%formBasedAuth}" name="authScanRadio" value="false" checked="${instance.authScanRadio == false}" inline="true">
+				  			<f:entry>
+							  	<f:entry field="authScanUser" title="Username">
+									<f:textbox/>
+								</f:entry>
+							  		  	
+				  	  		<f:entry field="authScanPw" title="Password">
+				  					<f:password/>
+				  				</f:entry>
+				  			</f:entry>
+						</f:radioBlock>
+					</td>	
+		                    </tr>
+		                </table>	
+		       </f:entry>
+		</f:radioBlock>
+
+
+	 </f:section>
+
+	<f:section title=""> 
+		 <f:radioBlock title="${%No Report}" name="generateReport" value="false" checked="${instance == null ||instance.generateReport == false}" inline="true">
+			</f:radioBlock>
+		 <f:radioBlock title="${%generateReport}" name="generateReport" value="true" checked="${instance.generateReport == true}" inline="true">
+			<f:entry>
+						
+		    	  	<f:entry field="reportName" title="Report title">
+		  			<f:textbox clazz="required"/>
+		  		</f:entry>
+		  		
+		    	  	<f:entry field="htmlReport" title="HTML Report">
+		  			<f:checkbox checked="${instance.htmlReport == true || instance.pdfReport == false}"/>
+		  		</f:entry> 
+		  		
+		  		<f:entry field="pdfReport" title="PDF Report">
+		  			<f:checkbox checked="${instance.pdfReport == true}"/>
+		  		</f:entry>
+	  
+			</f:entry>
+		</f:radioBlock>
+	 </f:section>
+	
+	<f:section title="">  
+		<f:advanced>
+			<f:entry field="includeURLS" title="${%includeURLS}">
+				<f:textarea/>
+			</f:entry>
+		
+			<f:entry field="policyFile" title="${%testPolicyFilePath}">
+		  		<f:textbox/>
+			</f:entry>
+		
+		
+			<f:entry field="additionalCommands" title="${%additionalCommands}">
+				<f:textarea/>
+			</f:entry>
+			
+		</f:advanced>
+	 </f:section>  
+
+</j:jelly>

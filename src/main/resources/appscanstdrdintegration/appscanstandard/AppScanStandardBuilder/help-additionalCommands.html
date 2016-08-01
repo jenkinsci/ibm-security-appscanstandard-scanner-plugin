@@ -1,0 +1,65 @@
+<div>
+Provide additional and optional commands to run on AppScan Standard CLI.
+
+<pre>
+AppScanCMD exec|ex|e
+
+        Parameters:
+        [ /dest_scan|/dest|/d <full_path> ]
+        [ /base_scan|/base|/b <full_path> ]
+        [ /old_host|/ohost|/oh <https://demo.testfire.net> ]
+        [ /new_host|/nhost|/nh <http://testing.testfire.net> ]
+        [ /scan_template|/stemplate|/st <full_path> ]
+        [ /login_file|/lfile|/lf <full_path> ]
+        [ /multi_step_file|/mstepfile|/mf <full_path> ]
+        [ /manual_explore_file|/mexplorefile|/mef <full_path> ]
+        [ /policy_file|/pfile|/pf <full_path> ]
+        [ /additional_domains|/adomains|/ad <demo.testfire.net123> ]
+        [ /report_file|/rf <full_path> ]
+        [ /report_type|/rt <Xml,Pdf,Rtf,Txt,Html,rc_ase,Xml_Report> {xml} ]
+        [ /min_severity|/msev <Informational,Low,Medium,High> {informational} ]
+        [ /test_type|/tt <All,Application,Infrastructure,ThirdParty> ]
+        [ /report_template|/rtemplate|/rtm <CliDefault,GuiDefault,Summary,DetailedReport,Developer,QA,SiteInventory> {CliDefault} ]
+
+        Flags:
+        [ /verbose|/v {false} ]
+        [ /scan_log|/sl {false} ]
+        [ /explore_only|/eo {false} ]
+        [ /test_only|/to {false} ]
+        [ /multi_step|/mstep|/ms {false} ]
+        [ /continue|/c {false} ]
+        [ /merge_manual_explore_requests|/mmer {false} ]
+        [ /include_responses|/ir {false} ]
+        [ /open_proxy|/oprxy|/opr /listening_port|/lport|/lp <port number> ]
+
+        Creates new scan with base_scan's configuration
+    saving dest_scan and creating report, if configured.
+
+AppScanCMD report|rep|r
+
+        Parametrs:
+        /base_scan|/base|/b <full_path>
+        /report_file|/rf <full_path>
+        /report_type|/rt <Xml,Pdf,Rtf,Txt,Html,rc_ase,Xml_Report>
+        [ /min_severity|/msev <Informational,Low,Medium,High> {informational} ]
+        [ /test_type|/tt <All,Application,Infrastructure,ThirdParty> ]
+        [ /report_template|/rtemplate|/rtm <CliDefault,GuiDefault,Summary,DetailedReport,Developer,QA,SiteInventory> {CliDefault} ]
+
+        Flags:
+        [ /verbose|/v {false} ]
+
+        Creates a report for base_scan.
+
+AppScanCMD close_proxy|cprxy|cpr
+
+        Closes AppScan proxy if was previously opened.
+        
+More info. at:
+(9.0.3.2 User Guide) CLI - Chapter 15 - CLI - Page 315
+http://www-01.ibm.com/support/docview.wss?uid=swg27048015#2
+        
+</pre>
+</div>
+
+
+
