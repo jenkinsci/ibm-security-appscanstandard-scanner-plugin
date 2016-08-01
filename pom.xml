@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <relativePath/>
+    <version>2.7</version>
+  </parent>
+  
+  <groupId>appscanstandard-integration</groupId>
+  <artifactId>ibm-security-appscanstandard-scanner</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>hpi</packaging>
+  
+  <name>IBM Security AppScan Standard Scanner</name>
+  <description>Provides integration with IBM's AppScan Standard using the provided command line interface.</description>
+  <url>https://wiki.jenkins-ci.org/display/JENKINS/IBM+Security+AppScan+Standard+Scanner+Plugin</url>
+  
+  <properties>
+    <jenkins.version>2.14</jenkins.version>
+    <java.level>7</java.level>
+    <argLine/>
+  </properties>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>tlopesPT</id>
+      <name>Tiago Lopes</name>
+      <email>tlopes.pt@outlook.com</email>
+    </developer>
+  </developers>
+
+<scm>
+  <connection>scm:git:ssh://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
+  <developerConnection>scm:git:ssh://git@github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
+  <url>https://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin</url>
+  </scm>
+
+
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+  	<pluginManagement>
+  		<plugins>
+  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  			<plugin>
+  				<groupId>org.eclipse.m2e</groupId>
+  				<artifactId>lifecycle-mapping</artifactId>
+  				<version>1.0.0</version>
+  				<configuration>
+  					<lifecycleMappingMetadata>
+  						<pluginExecutions>
+  							<pluginExecution>
+  								<pluginExecutionFilter>
+  									<groupId>
+  										org.apache.maven.plugins
+  									</groupId>
+  									<artifactId>
+  										maven-javadoc-plugin
+  									</artifactId>
+  									<versionRange>
+  										[2.10.1,)
+  									</versionRange>
+  									<goals>
+  										<goal>javadoc</goal>
+  									</goals>
+  								</pluginExecutionFilter>
+  								<action>
+  									<ignore></ignore>
+  								</action>
+  							</pluginExecution>
+  						</pluginExecutions>
+  					</lifecycleMappingMetadata>
+  				</configuration>
+  			</plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+</project>
