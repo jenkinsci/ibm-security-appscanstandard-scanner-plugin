@@ -1,1 +1,12 @@
 /target/
+/work/
+/.svn/
+/.sonar/
+/.settings/
+/.metadata/
+
+/sonar-project.properties
+/.classpath
+/.project
+/src/.sonar/
+/src/sonar-project.properties
