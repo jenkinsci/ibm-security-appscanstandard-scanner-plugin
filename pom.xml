@@ -11,7 +11,7 @@
   
   <groupId>appscanstandard-integration</groupId>
   <artifactId>ibm-security-appscanstandard-scanner</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>hpi</packaging>
   
   <name>IBM Security AppScan Standard Scanner</name>
@@ -40,9 +40,10 @@
   </developers>
 
 <scm>
-  <connection>scm:git:git://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
-  <developerConnection>scm:git:git://git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
-  <url>https://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin</url>
+  <connection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
+  <developerConnection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
+  <url>git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</url>
+    <tag>HEAD</tag>
   </scm>
 
 
