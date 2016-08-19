@@ -383,6 +383,7 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 
 		String exe = AppScanStandardInstallation.getExecutable(installation,
 				AppScanStandardCommand.APPSCANSTANDARDCLI, node, listener, envVars);
+		
 
 		AppScanStandardExecutor.execute(workspace, launcher, exe, listener, cmd, cmdreport);
 
@@ -519,6 +520,10 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 	 */
 	public String getStartingURL() {
 		return startingURL;
+	}
+	
+	public String getInstallation() {
+		return installation;
 	}
 
 	public boolean isAuthScan() {
