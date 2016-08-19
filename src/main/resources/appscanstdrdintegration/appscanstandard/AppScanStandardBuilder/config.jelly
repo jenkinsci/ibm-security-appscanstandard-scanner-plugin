@@ -27,7 +27,7 @@
 	
 					  	<f:radioBlock title="${%recordedSequence}" name="authScanRadio" value="true" checked="${instance == null ||instance.authScanRadio == true}" inline="true">
 							<f:entry>
-								<f:entry field="pathRecordedSequence" title="${%pathRecordedLoginSequence}">
+								<f:entry field="pathRecordedLoginSequence" title="${%pathRecordedLoginSequence}">
 									<f:textbox value="${it.pathRecordedLoginSequence}"/>
 						  		</f:entry>
 						  	</f:entry>  
