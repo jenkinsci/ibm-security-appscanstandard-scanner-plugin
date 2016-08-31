@@ -13,7 +13,10 @@
 	<f:entry title="${%startingURL}" field="startingURL">
 		<f:textbox clazz="required"/>
 	</f:entry>  
-	    
+	
+	<f:entry field="verbose" title="Show Output">
+		<f:checkbox checked="${instance.verbose == true}"/>
+	</f:entry>     
     
 	 <f:section title="">  
 	 	 <f:radioBlock title="${%No Authentication}" name="authScan" value="false" checked="${instance == null ||instance.authScan == false}" inline="true">
@@ -72,7 +75,7 @@
 		  		</f:entry>
 	  
 			</f:entry>
-		</f:radioBlock>
+		</f:radioBlock>		
 	 </f:section>
 	
 	<f:section title="">  

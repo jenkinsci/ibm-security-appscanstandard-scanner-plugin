@@ -157,11 +157,16 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 	 */
 	private ArrayList<String> cmd;
 	private ArrayList<String> cmdreport;
-	
+
 	/**
-	 * This descriptor is used to GET the data from Jenkin's Global Configuration.
+	 * Used to store the commands set in the global configuration.
 	 */
-	public static final DescriptorImpl DESCRIPTOR = new DescriptorImpl();
+	String splitGlobalCommands;
+
+	/**
+	 * If true, a report will be generated after scanning.
+	 */
+	private boolean verbose;
 
 	/**
 	 * Performs on-the-fly validation of the form field 'startingURL'.
@@ -204,6 +209,11 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 					"The AppScan Standard requires a Starting URL to run a scan.");
 		}
 
+		if (StringUtils.isBlank(this.getInstallation())) {
+			throw new AbortException(
+					"AppScan Standard installation is not set, please configure it in the Configure Global Tools section.");
+		}
+
 		//Gets the node on which AppScan is going to run.
 		Node node = computer.getNode();
 
@@ -230,7 +240,9 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		cmd.add(AppScanStandardConstants.APPSCANCMD_EXEC);
 		cmd.add(AppScanStandardConstants.APPSCANCMD_START_URL);
 		cmd.add(getStartingURL());
-		cmd.add(AppScanStandardConstants.APPSCANCMD_VERBOSE);
+		if (verbose) {
+			cmd.add(AppScanStandardConstants.APPSCANCMD_VERBOSE);
+		}
 
 		/**
 		 * If both report types are going to be generated,
@@ -368,14 +380,18 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		for (String str : splitCommands) {
 			cmd.add(str);
 		}
-		
-		
-		String[] splitGlobalCommands = AppScanStandardBuilder.DESCRIPTOR.getAdditionalCommandsGlobal().split(" ");
-		for (String str : splitGlobalCommands) {
-			cmd.add(str);
+
+		/**
+		 * This descriptor is used to GET the data from Jenkin's Global Configuration.
+		 */
+		splitGlobalCommands = getDescriptor().getAdditionalCommandsGlobal();
+
+		if (!StringUtils.isBlank(splitGlobalCommands)) {
+			String[] splitGlobalCommands2 = splitGlobalCommands.split(" ");
+			for (String str : splitGlobalCommands2) {
+				cmd.add(str);
+			}
 		}
-		
-		logger.println("AppScan Standard is going to scan the target:  " + getStartingURL());
 
 		/**
 		 * Executes AppScan using the CLI, the built command is provided to set the scan configuration.
@@ -383,7 +399,12 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 
 		String exe = AppScanStandardInstallation.getExecutable(installation,
 				AppScanStandardCommand.APPSCANSTANDARDCLI, node, listener, envVars);
-		
+
+		if ("AppScanCMD.exe".equals(exe)) {
+			logger.println("\nWarning: The path to the AppScan Standard installation may not be set, please configure it in the Configure Global Tools section or setup PATH.\n");
+		}
+
+		logger.println("AppScan Standard is going to scan the target:  " + getStartingURL());
 
 		AppScanStandardExecutor.execute(workspace, launcher, exe, listener, cmd, cmdreport);
 
@@ -391,7 +412,9 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		 * Deletes the temporary scan template file created for form based authentication.
 		 * !authScanRadio means that "form based auth" was used.
 		 */
-		if (scanTemplateBuilder != null) {
+		if (scanTemplateBuilder != null)
+
+		{
 			scanTemplateBuilder.deleteScanTemplateFile();
 		}
 
@@ -521,7 +544,7 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 	public String getStartingURL() {
 		return startingURL;
 	}
-	
+
 	public String getInstallation() {
 		return installation;
 	}
@@ -572,6 +595,10 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 
 	public String getIncludeURLS() {
 		return includeURLS;
+	}
+
+	public boolean isVerbose() {
+		return verbose;
 	}
 
 	@DataBoundSetter
@@ -633,5 +660,10 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 	public void setIncludeURLS(String includeURLS) {
 		this.includeURLS = includeURLS;
 	}
-	
+
+	@DataBoundSetter
+	public void setVerbose(boolean verbose) {
+		this.verbose = verbose;
+	}
+
 }
