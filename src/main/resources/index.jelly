@@ -3,5 +3,5 @@
   This view is used to render the installed plugins page.
 -->
 <div>
-This plugin allows you to launch AppScan Standard via Jenkins.
+This plugin allows you to launch IBM Security AppScan Standard via Jenkins.
 </div>

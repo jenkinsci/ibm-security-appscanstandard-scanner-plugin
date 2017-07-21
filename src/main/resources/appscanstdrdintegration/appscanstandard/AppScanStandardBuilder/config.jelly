@@ -14,7 +14,7 @@
 		<f:textbox clazz="required"/>
 	</f:entry>  
 	
-	<f:entry field="verbose" title="Show Output">
+	<f:entry title="${%verbose}" field="verbose">
 		<f:checkbox checked="${instance.verbose == true}"/>
 	</f:entry>     
     
