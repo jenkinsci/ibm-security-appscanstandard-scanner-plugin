@@ -11,7 +11,7 @@
   
   <groupId>appscanstandard-integration</groupId>
   <artifactId>ibm-security-appscanstandard-scanner</artifactId>
-  <version>2.6</version>
+  <version>2.6-SNAPSHOT</version>
   <packaging>hpi</packaging>
   
   <name>IBM Security AppScan Standard Scanner</name>
