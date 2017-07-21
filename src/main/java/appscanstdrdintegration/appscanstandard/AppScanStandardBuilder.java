@@ -224,7 +224,7 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 
 		Node node = computer.getNode();
 		*/
-		Node node = null;
+		Node node = null; //quick fix for handling pipelines without refactoring
 
 		//Gets Jenkins Environment Variables.
 		EnvVars envVars = build.getEnvironment(listener);
