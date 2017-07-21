@@ -198,11 +198,15 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		 * This also shows how you can consult the global configuration of the builder.
 		 */
 
+		/*
+		//It's unclear the objective of this code, causing errors when launching the plugin via pipeline
+
 		Computer computer = Computer.currentComputer();
 		if (computer == null) {
 			throw new AbortException(
 					"The AppScan Standard build step requires to be launched on a node");
 		}
+		*/
 
 		if (StringUtils.isBlank(this.getStartingURL())) {
 			throw new AbortException(
@@ -214,8 +218,13 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 					"AppScan Standard installation is not set, please configure it in the Configure Global Tools section.");
 		}
 
+		/*
 		//Gets the node on which AppScan is going to run.
+		//It's unclear the objective of this code, causing errors when launching the plugin via pipeline
+
 		Node node = computer.getNode();
+		*/
+		Node node = null; //quick fix for handling pipelines without refactoring
 
 		//Gets Jenkins Environment Variables.
 		EnvVars envVars = build.getEnvironment(listener);
@@ -263,7 +272,7 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 			/*
 			 * If true, authentication scan is based on a recorded login file,
 			 * the path to the file must be provided.
-			 * 
+			 *
 			 * If false, form based authentication will be used,
 			 * user name and password must be provided.
 			 */
@@ -351,12 +360,12 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		}
 
 		/**
-		  * 
+		  *
 		  * Includes URLs for scanning
-		  * 
+		  *
 		  * By accessing the URL and checking "Scan URL" on the plugin job's GUI
 		  * it will automatically active scan all accessed URLs
-		  * 
+		  *
 		  * Splits the URLs inserted in the text area by new line and accesses each individually
 		  */
 
