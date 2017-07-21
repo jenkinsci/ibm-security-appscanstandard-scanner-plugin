@@ -41,7 +41,7 @@
 
 
 <scm>
-  <connection>scm:git:ssh://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
+  <connection>scm:git:git://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
   <developerConnection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
   <url>https://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin</url>
     <tag>v2.5</tag>
