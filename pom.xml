@@ -39,7 +39,12 @@
     </developer>
   </developers>
 
-
+  <!---Release:
+  Create SSH Key for GitHub: git bash > ssh-keygen -t rsa -b 4096 -C "email@mail.com"
+  Add Key to GitHub (id_rsa)
+  Use .m2 settings.xml with user/password credentials for Jenkins
+  run> mvn release:prepare release:perform
+  -->
 <scm>
   <connection>scm:git:git://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
   <developerConnection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
