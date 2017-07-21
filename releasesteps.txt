@@ -1,0 +1,7 @@
+
+  <!--- Release Steps for Windows:
+  Create SSH Key for GitHub: git bash > ssh-keygen -t rsa -b 4096 -C "email@mail.com"
+  Add Key to GitHub (id_rsa)
+  Use .m2 settings.xml with user/password credentials for Jenkins
+  run> mvn release:prepare release:perform
+  -->
