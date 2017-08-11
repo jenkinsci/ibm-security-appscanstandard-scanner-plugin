@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -11,7 +10,7 @@
 
     <groupId>appscanstandard-integration</groupId>
     <artifactId>ibm-security-appscanstandard-scanner</artifactId>
-    <version>2.8-SNAPSHOT</version>
+    <version>2.8</version>
     <name>IBM Security AppScan Standard Scanner</name>
     <description>Provides integration with IBM's AppScan Standard using the provided command line interface.
     </description>
@@ -21,7 +20,7 @@
     <properties>
         <jenkins.version>2.0</jenkins.version>
         <java.level>7</java.level>
-        <argLine/>
+        <argLine />
     </properties>
 
     <licenses>
@@ -43,7 +42,7 @@
         <connection>scm:git:git://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin</url>
-        <tag>HEAD</tag>
+        <tag>ibm-security-appscanstandard-scanner-2.8</tag>
     </scm>
 
     <repositories>
