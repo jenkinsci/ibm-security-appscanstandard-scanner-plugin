@@ -10,7 +10,7 @@
 
     <groupId>appscanstandard-integration</groupId>
     <artifactId>ibm-security-appscanstandard-scanner</artifactId>
-    <version>2.8</version>
+    <version>2.9-SNAPSHOT</version>
     <name>IBM Security AppScan Standard Scanner</name>
     <description>Provides integration with IBM's AppScan Standard using the provided command line interface.
     </description>
@@ -42,7 +42,7 @@
         <connection>scm:git:git://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/ibm-security-appscanstandard-scanner-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/ibm-security-appscanstandard-scanner-plugin</url>
-        <tag>ibm-security-appscanstandard-scanner-2.8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <repositories>
