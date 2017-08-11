@@ -24,44 +24,37 @@
 
 package appscanstdrdintegration.appscanstandard;
 
-import hudson.Launcher;
+import appscanstdrintegration.appscanstandard.utilities.AppScanStandardExecutor;
+import appscanstdrintegration.appscanstandard.utilities.AppScanStandardManualExploreFile;
+import appscanstdrintegration.appscanstandard.utilities.AppScanStandardScanTemplateBuilder;
 import hudson.AbortException;
 import hudson.EnvVars;
 import hudson.Extension;
 import hudson.FilePath;
-import hudson.util.FormValidation;
+import hudson.Launcher;
+import hudson.Util;
 import hudson.model.AbstractProject;
-import hudson.model.Computer;
+import hudson.model.Node;
 import hudson.model.Run;
 import hudson.model.TaskListener;
-import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.Builder;
+import hudson.util.FormValidation;
+import hudson.util.ListBoxModel;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
-
-import hudson.Util;
-import hudson.util.ListBoxModel;
-import hudson.model.Node;
-
 import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
-import appscanstdrintegration.appscanstandard.utilities.AppScanStandardExecutor;
-import appscanstdrintegration.appscanstandard.utilities.AppScanStandardManualExploreFile;
-import appscanstdrintegration.appscanstandard.utilities.AppScanStandardScanTemplateBuilder;
-
-import org.kohsuke.stapler.QueryParameter;
-
 import javax.servlet.ServletException;
-
 import java.io.IOException;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * 
@@ -369,7 +362,7 @@ public class AppScanStandardBuilder extends Builder implements SimpleBuildStep {
 		  * Splits the URLs inserted in the text area by new line and accesses each individually
 		  */
 
-		if (!"".equals(includeURLS)) {
+		if ((includeURLS != null) && (!"".equals(includeURLS.trim()))) {
 			manualExploreFile = new AppScanStandardManualExploreFile(includeURLS, logger);
 
 			manualExploreFile.createManualExploreFile(workspace);
